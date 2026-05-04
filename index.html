@@ -3,11 +3,24 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'wasm-unsafe-eval' wss: https: http://localhost:* http://127.0.0.1:*; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https: blob:; font-src 'self' data: https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' wss: https: http://localhost:* http://127.0.0.1:*;">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' 'wasm-unsafe-eval' wss: https: http://localhost:* http://127.0.0.1:*; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com; img-src 'self' data: https: blob:; font-src 'self' data: https://fonts.googleapis.com https://fonts.gstatic.com; connect-src 'self' wss: https: http://localhost:* http://127.0.0.1:*;">
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LeafX</title>
-
+  <script>
+    (function (l) {
+      if (l.search.startsWith('?p=/')) {
+        var decoded = l.search.slice(4).split('&').map(function (s) {
+          return s.replace(/~and~/g, '&')
+        });
+        window.history.replaceState(
+          null, null,
+          '/' + decoded[0] + (decoded[1] ? '?' + decoded[1] : '') + l.hash
+        );
+      }
+    }(window.location))
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
