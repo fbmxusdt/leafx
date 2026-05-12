@@ -1,1 +1,0 @@
-const a={dashboards:{dashboards:"Dashboards",home:"Home",shop:"Shop",wallets:"Wallets",rewards:"Rewards",staking:"Staking"},settings:{settings:"Settings",general:"General",appearance:"Appearance"}},s={nav:a};export{s as default,a as nav};
